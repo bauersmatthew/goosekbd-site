@@ -3,7 +3,6 @@ body
     background-color: #e7e7e8;
     font-family: Raleway;
     margin-top: 90px;
-    margin-bottom: 50px;
     color: #666666;
 }
 h1
@@ -49,4 +48,8 @@ h6
 .dark
 {
     color: #222222;
+}
+.endbuf
+{
+    padding-bottom: 50px;
 }
