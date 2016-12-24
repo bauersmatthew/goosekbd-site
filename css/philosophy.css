@@ -1,11 +1,11 @@
 .quote-body
 {
-    font-size: 42pt;
-    text-align: center;
+    font-size: 36pt;
+    padding-left:15%;
 }
 .quote-cite
 {
     font-size: 24pt;
     padding-left: 50%;
-    padding-bottom: 50px;
+    padding-bottom: 75px;
 }
