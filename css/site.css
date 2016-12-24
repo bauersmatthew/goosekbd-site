@@ -1,0 +1,67 @@
+body
+{
+    background-color: #e7e7e8;
+    font-family: Raleway;
+}
+h1
+{
+    font-family: Montserrat;
+    font-size: 36pt;
+    color: #333333;
+}
+.text-centered
+{
+    align: center;
+}
+#nav-main-links
+{
+    align: right;
+}
+#3c-carousel
+{
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+}
+.carousel-caption
+{
+    font-family: Montserrat;
+    font-weight: bold;
+    color: #666666;
+    font-size: 48pt;
+
+    top: 0;
+    bottom: auto;
+}
+.carousel-control.left, .carousel-control.right
+{
+    background-image: none;
+}
+.carousel-control.left
+{
+    padding-left: 0;
+    margin-left: 0;
+}
+.carousel-control.right
+{
+    padding-right: 5%;
+}
+
+#g01-title
+{
+    margin-left: 10%;
+    margin-bottom: 40px;
+}
+#g01-text
+{
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 100px;
+    font-size: 18pt;
+}
+.g01-emphtext
+{
+    margin-left: 25%;
+    margin-right: 15%;
+    font-size: 32pt;
+    font-style: oblique;
+}
