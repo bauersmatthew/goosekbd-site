@@ -2,6 +2,7 @@ body
 {
     background-color: #e7e7e8;
     font-family: Raleway;
+    margin-top: 90px;
 }
 h1
 {
@@ -41,8 +42,4 @@ h6
 .endbuf
 {
     margin-bottom: 50px;
-}
-.startbuf
-{
-    margin-top: 90px;
 }
