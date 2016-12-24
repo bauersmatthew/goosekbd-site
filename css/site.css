@@ -5,63 +5,44 @@ body
 }
 h1
 {
-    font-family: Montserrat;
+    font-size: 64pt;
+}
+h2
+{
+    font-size: 42pt;
+}
+h3
+{
     font-size: 36pt;
-    color: #333333;
+}
+h4
+{
+    font-size: 24pt;
+}
+h5
+{
+    font-size: 16pt;
+}
+h6
+{
+    font-size: 12pt;
 }
 .text-centered
 {
-    align: center;
+    text-align: center;
 }
-#nav-main-links
+.textwall
 {
-    align: right;
+    text-align: left;
+    padding-left: 10%;
+    padding-right: 15%;
+    font-size: 24pt;
 }
-#3c-carousel
+.endbuf
 {
-    border-bottom-style: solid;
-    border-bottom-width: medium;
+    margin-bottom: 50px;
 }
-.carousel-caption
+.startbuf
 {
-    font-family: Montserrat;
-    font-weight: bold;
-    color: #666666;
-    font-size: 48pt;
-
-    top: 0;
-    bottom: auto;
-}
-.carousel-control.left, .carousel-control.right
-{
-    background-image: none;
-}
-.carousel-control.left
-{
-    padding-left: 0;
-    margin-left: 0;
-}
-.carousel-control.right
-{
-    padding-right: 5%;
-}
-
-#g01-title
-{
-    margin-left: 10%;
-    margin-bottom: 40px;
-}
-#g01-text
-{
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-bottom: 100px;
-    font-size: 18pt;
-}
-.g01-emphtext
-{
-    margin-left: 25%;
-    margin-right: 15%;
-    font-size: 32pt;
-    font-style: oblique;
+    margin-top: 90px;
 }
