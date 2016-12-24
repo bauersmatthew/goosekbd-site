@@ -3,10 +3,13 @@ body
     background-color: #e7e7e8;
     font-family: Raleway;
     margin-top: 90px;
+    margin-bottom: 50px;
+    color: #666666;
 }
 h1
 {
     font-size: 64pt;
+    color: #222222;
 }
 h2
 {
@@ -39,7 +42,11 @@ h6
     padding-right: 15%;
     font-size: 18pt;
 }
-.endbuf
+.light
 {
-    margin-bottom: 50px;
+    color: #666666;
+}
+.dark
+{
+    color: #222222;
 }
