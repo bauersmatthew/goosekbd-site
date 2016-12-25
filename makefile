@@ -16,7 +16,7 @@ www/%.html: html_src/%.html
 
 zip: $(ZIPF)
 
-$(ZIPF):
+$(ZIPF): www
 	rm -f www.zip
 	zip -r www www
 
