@@ -2,12 +2,14 @@
 {% from "templates/macros.html" import navbar %}
 
 {% block ssheets %}
-    <link rel="stylesheet" href="css/philosophy.html">
+    <link rel="stylesheet" href="css/philosophy.css">
 {% endblock %}
 
 {% block title %}Our Philosophy{% endblock %}
 
 {% block body %}
+    {{ navbar("philosophy") }}
+
     <!-- QUOTES -->
     <div class="col-md-12 dark">
         <div class="quote-body">
