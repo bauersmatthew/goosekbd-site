@@ -1,7 +1,7 @@
-{% extends templates/page.html %}
-{% include templates/macros.html %}
+{% extends "templates/page.html" %}
+{% from "templates/macros.html" import navbar %}
 
-{% block title}About Us{% endblock %}
+{% block title %}About Us{% endblock %}
 
 {% block body %}
     {{ navbar("about-us") }}
@@ -17,4 +17,4 @@
         <br /><br />
         To contact us, shoot an email to: <code>support@goosekbd.com</code>
     </div>
-{% endblock}
+{% endblock %}
