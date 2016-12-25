@@ -1,0 +1,23 @@
+{% macro navbar(active) %}
+    <nav id="nav-main" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">GOOSE KBD</a>
+            </div>
+            <ul id="nav-main-links" class="nav navbar-nav">
+                <li {% if active=="index" %}class="active"{% endif %}>
+                    <a href="index.html">HOME</a></li>
+                </li>
+                <li {% if active=="g01" %}class="active"{% endif %}>
+                    <a href="g01.html">PRODUCTS</a>
+                </li>
+                <li {% if active=="philosophy" %}class="active"{% endif %}>
+                    <a href="philosophy.html">PHILOSOPHY</a>
+                </li>
+                <li {% if active=="about us" %}class="active"{% endif %}>
+                    <a href="about-us.html">ABOUT US</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endmacro %}
