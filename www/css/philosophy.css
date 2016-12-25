@@ -1,0 +1,16 @@
+.quote-body
+{
+    font-size: 36pt;
+    padding-left:15%;
+}
+.quote-cite
+{
+    font-size: 24pt;
+    padding-left: 50%;
+    padding-bottom: 75px;
+}
+#philosophy-text
+{
+    padding-left: 20%;
+    padding-right: 20%;
+}
