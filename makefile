@@ -1,6 +1,6 @@
 CXX := python jj2_compileone.py
 
-SRCS := $(shell find html_src/ -maxdepth 1 -name '*.html')
+SRCS := $(shell find html_src/ -maxdepth 1 -name '*.php')
 SRCS_NAMES := $(notdir $(SRCS))
 FINALS := $(addprefix www/,$(SRCS_NAMES))
 ZIPF := www.zip
@@ -11,7 +11,7 @@ all: $(FINALS) $(ZIPF)
 
 html: $(FINALS)
 
-www/%.html: html_src/%.html
+www/%.php: html_src/%.php
 	$(CXX) $(notdir $<) > $@
 
 zip: $(ZIPF)
@@ -21,5 +21,5 @@ $(ZIPF): www
 	zip -r www www
 
 clean:
-	rm -f www/*.html
+	rm -f www/*.php
 	rm -f www.zip
