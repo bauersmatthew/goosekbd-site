@@ -57,3 +57,19 @@ h6
 {
     display: none;
 }
+
+#speclist
+{
+    border-style: solid;
+    border-width: 10px;
+}
+
+ul.dashed
+{
+    list-style-type: none;
+}
+ul.dashed > li:before
+{
+    white-space: pre;
+    content: "    \2014    ";
+}
