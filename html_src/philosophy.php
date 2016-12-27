@@ -35,7 +35,7 @@
         to every satisfying stroke.
         <br /><br />
         We believe that there's a whole lot of simplicity on the path to beauty.
-        With touches of well-relaxed classiness, timid bravery, and nostalgic
+        With touches of classiness and nostalgic
         modernity we create keyboards with a truly artful aesthetic.
     </div>
 {% endblock %}
