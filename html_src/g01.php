@@ -41,7 +41,7 @@
     <p class="col-md-12 textwall" id="details">
         The G-01 is a keyboard kit that offers a unique high-profile aluminum case with
         RGB midlighting. This group buy is being run in collaboration with
-        <a href="mechkeys.ca">mechkeys.ca</a> &mdash; go check them out!
+        <a href="http://www.mechkeys.ca">mechkeys.ca</a> &mdash; go check them out!
         <br /><br />
     </p>
     <div class="row" id="speclist">
