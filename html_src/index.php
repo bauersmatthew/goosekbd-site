@@ -20,17 +20,17 @@
 
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <a href="g01.html">
+                <a href="g01.php">
                     <img class="img-responsive center-block" src="res/img/g01/teaser1.jpg" alt="G01 Teaser 1">
                 </a>
             </div>
             <div class="item">
-                <a href="g01.html">
+                <a href="g01.php">
                     <img class="img-responsive center-block" src="res/img/g01/teaser2.jpg" alt="G01 Teaser 2">
                 </a>
             </div>
             <div class="item">
-                <a href="g01.html">
+                <a href="g01.php">
                     <img class="img-responsive center-block" src="res/img/g01/teaser3.jpg" alt="G01 Teaser 3">
                 </a>
             </div>
