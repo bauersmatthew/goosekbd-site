@@ -40,7 +40,8 @@
     <!-- DETAILS -->
     <p class="col-md-12 textwall" id="details">
         The G-01 is a keyboard kit that offers a unique high-profile aluminum case with
-        an RGB-compatible acrylic middle.
+        RGB midlighting. This group buy is being run in collaboration with
+        <a href="mechkeys.ca">mechkeys.ca</a> &mdash; go check them out!
         <br /><br />
     </p>
     <div class="row" id="speclist">
@@ -57,7 +58,7 @@
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-5" id="speclist-r1c2">
-            <p>Top/Bottom Finish Options:</p>
+            <p>Case Finish Options:</p>
             <ul class="dashed">
                 <li>Anodized Black</li>
                 <li>Anodized Silver</li>
@@ -75,7 +76,7 @@
         <ul class="dashed">
             <li>60% Case <strong>(REQUIRED)</strong></li>
             <li>ps2avRGB PCB</li>
-            <li>Aluminum plate (with or without BAE)</li>
+            <li>Aluminum or carbon fiber plate (ANSI and ISO both available)</li>
         </ul>
         <p>
             <i>Note: gateron switches may also be offered.</i>
