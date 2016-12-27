@@ -39,27 +39,33 @@
 
     <!-- DETAILS -->
     <p class="col-md-12 textwall" id="details">
-        With classic bevels, muted tones, and subtle illumination, the G-01 is
-        a timeless desktop accessory that strikes boldly wherever it goes.
+        The G-01 is a keyboard kit that offers a unique high-profile aluminum case with
+        an RGB-compatible acrylic middle.
         <br /><br />
-        More specific details coming soon!
+        Specs:
     </p>
+    <ul class="col-md-12 textwall dashed" id=#speclist>
+        <li>High profile</li>
+        <li>60% form-factor</li>
+        <li>Anodized, powder coated top and bottom pieces</li>
+        <li>RGB midglow-compatible acrylic middle</li>
+        <li>ps2avRGB PCB</li>
+    </ul>
 
     <!-- EMAIL FORM -->
     <p class="col-md-12 textwall" id="email-signup">
+        <br />
         Want to recieve email updates? Give us your email below:
     </p>
-    <div class="row endbuf">
+    <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-4">
-            <form method="post" action="#email-signup">
-                <div class="form-group">
-                    <label for="email" class="sr-only">Email:</label>
-                    <input type="email" name="email" class="form-control" placeholder="Enter email...">
-                </div>
-                <button type=submit class="btn btn-default">Submit</button>
-            </form>
-        </div>
+        <form method="post" action="#email-signup" class="col-md-4">
+            <div class="form-group">
+                <label for="email" class="sr-only">Email:</label>
+                <input type="email" name="email" class="form-control" placeholder="Enter email...">
+            </div>
+            <button type=submit class="btn btn-default">Submit</button>
+        </form>
         <?php
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
@@ -84,14 +90,53 @@
                     }
                     else
                     {
-                        print '
-                        <div class="col-md-4 alert alert-success fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            Success!
-                        </div>';
+                        // connect to database
+                        $conn = new mysqli("localhost", "goosekbd", "g00s3kbd", "goosekbd");
+                        if($conn->connect_error)
+                        {
+                            print '
+                            <div class="col-md-4 alert alert-danger fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                Something bad happened on our end. Sorry!
+                            </div>';
+                        }
+                        else
+                        {
+                            // insert into table
+                            $sql = "INSERT INTO `g01-mailing-list` (email)
+                            VALUES ('" . $_POST["email"] . "')";
+                            if($conn->query($sql) == TRUE)
+                            {
+                                print '
+                                <div class="col-md-4 alert alert-success fade in">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    Success -- thanks for the support!
+                                </div>';
+                            }
+                            else
+                            {
+                                // happens when the person has already joined the mailing list
+                                print '
+                                <div class="col-md-4 alert alert-info fade in">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    Looks like you already signed up! &#9786;
+                                </div>';
+                            }
+                        }
+
+                        $conn->close();
                     }
                 }
             }
         ?>
+    </div>
+
+    <div class="col-md-12 endbuf text-centered" id="drama-text">
+        <i>
+            <br />
+            <br />
+            With classic bevels, muted tones, and subtle illumination, the G-01 is
+            a timeless desktop accessory that strikes boldly wherever it goes.
+        </i>
     </div>
 {% endblock %}
