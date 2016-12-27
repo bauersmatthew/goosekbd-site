@@ -89,8 +89,8 @@
         Want to recieve email updates? Give us your email below:
     </p>
     <div class="row">
-        <div class="col-md-2"></div>
-        <form method="post" action="#email-signup" class="col-md-4">
+        <div class="col-xs-2"></div>
+        <form method="post" action="#email-signup" class="col-xs-4">
             <div class="form-group">
                 <label for="email" class="sr-only">Email:</label>
                 <input type="email" name="email" class="form-control" placeholder="Enter email...">
