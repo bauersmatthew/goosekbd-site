@@ -55,7 +55,8 @@
                 <li>ps2avRGB PCB</li>
             </ul>
         </div>
-        <div class="col-md-6" id="speclist-r1c2">
+        <div class="col-md-1"></div>
+        <div class="col-md-5" id="speclist-r1c2">
             <p>Top/Bottom Finish Options:</p>
             <ul class="dashed">
                 <li>Anodized Black</li>
