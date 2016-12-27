@@ -42,15 +42,44 @@
         The G-01 is a keyboard kit that offers a unique high-profile aluminum case with
         an RGB-compatible acrylic middle.
         <br /><br />
-        Specs:
     </p>
-    <ul class="col-md-12 textwall dashed" id=#speclist>
-        <li>High profile</li>
-        <li>60% form-factor</li>
-        <li>Anodized, powder coated top and bottom pieces</li>
-        <li>RGB midglow-compatible acrylic middle</li>
-        <li>ps2avRGB PCB</li>
-    </ul>
+    <div class="row" id="speclist">
+        <div class="col-md-6">
+            <p>General Specs:</p>
+            <ul class="dashed">
+                <li>High profile</li>
+                <li>60% form-factor</li>
+                <li>Anodized, powder coated top and bottom pieces</li>
+                <li>Top and bottom aluminum pieces with a variety of high quality finishes</li>
+                <li>RGB midglow-compatible acrylic middle</li>
+                <li>ps2avRGB PCB</li>
+            </ul>
+        </div>
+        <div class="col-md-6" id="speclist-r1c2">
+            <p>Top/Bottom Finish Options:</p>
+            <ul class="dashed">
+                <li>Anodized Black</li>
+                <li>Anodized Silver</li>
+                <li>Anodized Red</li>
+                <li>Powder-coated Black</li>
+                <li>Powder-coated White</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-12 textwall">
+        <p>
+            <br />
+            The G-01 kit will be sold in any combination of the following parts:
+        </p>
+        <ul class="dashed">
+            <li>60% Case <strong>(REQUIRED)</strong></li>
+            <li>ps2avRGB PCB</li>
+            <li>Aluminum plate (with or without BAE)</li>
+        </ul>
+        <p>
+            <i>Note: gateron switches may also be offered.</i>
+        </p>
+    </div>
 
     <!-- EMAIL FORM -->
     <p class="col-md-12 textwall" id="email-signup">
