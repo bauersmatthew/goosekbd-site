@@ -8,8 +8,6 @@ ZIPF := www.zip
 
 .PHONY: all clean html zip
 
-all: html zip
-
 html: $(FINALS)
 
 www/%.php: html_src/%.php $(TEMPLATES)
@@ -27,3 +25,6 @@ www: html
 clean:
 	rm -f www/*.php
 	rm -f www.zip
+	
+all: html zip
+
