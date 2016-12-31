@@ -22,7 +22,7 @@
 
         <!-- IMAGE -->
         <div id="g01-img" class="col-md-7">
-            <img class="img-reponsive" src="res/img/g01/tall.jpg" alt="G01">
+            <img class="img-responsive" src="res/img/g01/tall.png" alt="G01">
         </div>
     </div>
 
@@ -58,11 +58,10 @@
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-5" id="speclist-r1c2">
-            <p>Case Finish Options:</p>
+            <p>Case Finish Options (tentative):</p>
             <ul class="dashed">
                 <li>Anodized Black</li>
                 <li>Anodized Silver</li>
-                <li>Anodized Red</li>
                 <li>Powder-coated Black</li>
                 <li>Powder-coated White</li>
             </ul>
