@@ -8,7 +8,7 @@
 {% block title %}GOOSE 01{% endblock %}
 
 {% block body %}
-    {{ navbar("g01") }}
+    {{ navbar("products") }}
 
     <div class="row">
         <!-- DESCRIPTION TEXT -->

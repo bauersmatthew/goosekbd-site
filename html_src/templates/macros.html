@@ -14,8 +14,21 @@
                 <li {% if active=="index" %}class="active"{% endif %}>
                     <a href="index.php">HOME</a></li>
                 </li>
-                <li {% if active=="g01" %}class="active"{% endif %}>
-                    <a href="g01.php">PRODUCTS</a>
+                <li
+                {% if active=="products" %}
+                    class="active dropdown"
+                {% else %}
+                    class="dropdown"
+                {% endif %}>
+                    <a class="dropdown-toggle" id="navbar-products-dropdown"
+                    data-toggle="dropdown" href="#">
+                        Products
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="g01.php">G-01</a></li>
+                        <li><a href="brass_60p.php">Brass Plates</a></li>
+                     </ul>
                 </li>
                 <li {% if active=="philosophy" %}class="active"{% endif %}>
                     <a href="philosophy.php">PHILOSOPHY</a>
