@@ -69,6 +69,10 @@ ul.dashed > li:before
     white-space: pre;
     content: "    \2014    ";
 }
+.btn
+{
+    white-space: normal;
+}
 .btn.outline
 {
     background: none;
