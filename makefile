@@ -7,7 +7,7 @@ FINALS := $(addprefix www/,$(SRCS_NAMES))
 WWW_CONTENTS := $(shell find www/ -name '*')
 ZIPF := www.zip
 
-.PHONY: all clean html zip
+.PHONY: all clean html zip push
 
 html: $(FINALS)
 
@@ -19,10 +19,13 @@ zip: $(ZIPF)
 $(ZIPF): $(WWW_CONTENTS)
 	rm -f www.zip
 	zip -r www www
+	
+push: $(WWW_CONTENTS)
+	rsync -a www/ bauersmatthew@goosekbd.com:www
 
 clean:
 	rm -f www/*.php
 	rm -f www.zip
 	
-all: html zip
+all: html zip push
 
