@@ -69,3 +69,27 @@ ul.dashed > li:before
     white-space: pre;
     content: "    \2014    ";
 }
+.btn.outline
+{
+    background: none;
+    padding: 12px 22px;
+    text-shadow: none;
+}
+.btn-primary.outline
+{
+    border-width: 2px;
+    border-style: solid;
+    border-color: #0099cc;
+    color: #0099cc;
+}
+.btn-primary.outline:hover, .btn-primary-outline:focus
+{
+    border-color: #ff9030;
+    color: #ff9030;
+}
+.btn-primary.outline:active, .btn-primary-outline.active
+{
+    background: none;
+    border-color: #ff4c00;
+    color: #ff4c00;
+}
