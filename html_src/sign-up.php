@@ -1,16 +1,15 @@
 {% extends "templates/page.html" %}
 {% from "templates/macros.html" import navbar %}
 
-{% block ssheets %}
-    <link rel="stylesheet" href="css/sign-up.css">
-{% endblock %}
-
-{% block title %}Sign Up{% endblock %}
-
-{% block body %}
-    {{ navbar("sign-up") }}
-
+{% block pre %}
     <?php
+        session_start();
+        if(isset($_SESSION["email"]))
+        {
+            header("Location: https://goosekbd.com/profile.php");
+            exit();
+        }
+
         $fill_name = '';
         $fill_email = '';
         $err = '';
@@ -83,6 +82,16 @@
             }
         }
     ?>
+{% endblock %}
+
+{% block ssheets %}
+    <link rel="stylesheet" href="css/sign-up.css">
+{% endblock %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block body %}
+    {{ navbar("sign-up") }}
 
     <form method="post" action="#" class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 endbuf">
         <fieldset>
