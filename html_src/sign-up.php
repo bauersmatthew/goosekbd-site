@@ -11,44 +11,43 @@
     {{ navbar("sign-up") }}
 
     <?php
-        $fill_user = '';
+        $fill_name = '';
         $fill_email = '';
         $err = '';
         $success = FALSE;
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
-            if(empty($_POST["username"]))
+            if(empty($_POST["name"]))
             {
-                $err = 'Username not given.';
+                $err = 'Name not given.';
                 $fill_email = $_POST["email"];
             }
-            elseif(!preg_match("/^[a-zA-Z0-9._-]{1,255}$/", $_POST["username"]))
+            elseif(!preg_match("/^.{1,255}$/", $_POST["name"]))
             {
-                $err = 'Invalid username; must containing only alphanumeric characters
-                or ".", "_", or "-"';
+                $err = 'Is your name really that long?';
                 $fill_email = $_POST["email"];
             }
             elseif(empty($_POST["email"]))
             {
                 $err = 'Email not given.';
-                $fill_user = $_POST["username"];
+                $fill_name = $_POST["name"];
             }
             elseif(!preg_match("/^(?=.{3,255}$)[a-zA-Z0-9_.-]+@[a-zA-Z0-9_.-]+/", $_POST["email"]))
             {
                 $err = 'Invalid email.';
-                $fill_user = $_POST["username"];
+                $fill_name = $_POST["name"];
             }
             elseif(!preg_match("/(?=.*[0-9])(?=.*[a-zA-Z]).{6,}/", $_POST["pass1"]))
             {
                 $err = 'Invalid password.<br />Passwords must be at least 6 characters
                 long and contain at least one number and one letter.';
-                $fill_user = $_POST["username"];
+                $fill_name = $_POST["name"];
                 $fill_email = $_POST["email"];
             }
             elseif($_POST["pass1"] != $_POST["pass2"])
             {
                 $err = 'Passwords don\'t match!';
-                $fill_user = $_POST["username"];
+                $fill_name = $_POST["name"];
                 $fill_email = $_POST["email"];
             }
             else
@@ -62,17 +61,17 @@
                 else
                 {
                     $stmt = $conn->prepare(
-                        "INSERT INTO `accounts` (username, passhash, email)
+                        "INSERT INTO `accounts` (email, passhash, name)
                         VALUES (?, ?, ?)");
                     $stmt->bind_param(
                         "sss",
-                        $_POST["username"],
+                        $_POST["email"],
                         password_hash($_POST["pass1"], PASSWORD_BCRYPT),
-                        $_POST["email"]);
+                        $_POST["name"]);
                     if(!$stmt->execute())
                     {
-                        $err = 'Looks like either that username or email has already been registered.';
-                        $fill_user = $_POST["username"];
+                        $err = 'Looks like that email has already been registered.';
+                        $fill_name = $_POST["name"];
                         $fill_email = $_POST["email"];
                     }
                     else
@@ -89,9 +88,9 @@
         <fieldset>
             <legend>Sign Up</legend>
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" class="form-control" placeholder="johndoe1"
-                    value="<?php print $fill_user; ?>">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="John Doe"
+                    value="<?php print $fill_name; ?>">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
