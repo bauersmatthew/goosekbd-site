@@ -22,7 +22,7 @@
                 $err = 'Username not given.';
                 $fill_email = $_POST["email"];
             }
-            elseif(!preg_match("/[a-zA-Z0-9._-]{1,255}/", $_POST["username"]))
+            elseif(!preg_match("/^[a-zA-Z0-9._-]{1,255}$/", $_POST["username"]))
             {
                 $err = 'Invalid username; must containing only alphanumeric characters
                 or ".", "_", or "-"';
