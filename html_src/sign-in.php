@@ -72,10 +72,6 @@
 {% block body %}
     {{ navbar("sign-in") }}
 
-    <?php
-        $fill_email = '';
-    ?>
-
     <form method="post" action="#" class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 endbuf">
         <fieldset>
             <legend>Sign In</legend>
