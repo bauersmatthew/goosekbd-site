@@ -99,7 +99,7 @@
                         else
                         {
                              # send verification email
-                             mail(
+                             /*mail(
                                 $_POST["email"],
 
                                 'Verify Your GooseKBD Account',
@@ -112,7 +112,7 @@
                                 'From: "GooseKBD" <verify@goosekbd.com>' . "\r\n" .
                                 'X-Mailer: PHP/' . phpversion() . "\r\n" .
                                 'MIME-Version: 1.0'
-                             );
+                            );*/
                             $success = TRUE;
                         }
                     }
@@ -129,7 +129,43 @@
 
 {% block title %}Sign Up{% endblock %}
 
+{% block head %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#verifyModal').modal('show');
+    });
+</script>
+{% endblock %}
+
 {% block body %}
+    <?php
+        if($success == TRUE)
+        {
+            print '
+            <div class="modal fade" id="verifyModal">
+                <div class="modal-dialogue modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Verify Your Email</h3>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Success &mdash; you\'re almost there!</h4>
+                            <p>
+                                Before you can log in, we need to verify your email. <br />
+                                We\'ve sent an email to
+                                <code>' . $_POST["email"] . '</code>;
+                                it should arrive soon**. When it does,
+                                just click the link in it to log in! <br /><br />
+                                <small>**If it doesn\'t after 30 minutes or so,
+                                contact us at <code>support@goosekbd.com</code>.</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>';
+        }
+    ?>
+
     {{ navbar("sign-up") }}
 
     <form method="post" action="#" class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 endbuf">
@@ -164,14 +200,6 @@
                 <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 alert alert-danger fade in">
                     <a href="#" class="close" data-dismiss="alert">&times;</a>
                     ' . $err . '
-                </div>';
-            }
-            elseif($success == TRUE)
-            {
-                print '
-                <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 alert alert-success fade in">
-                    <a href="#" class="close" data-dismiss="alert">&times;</a>
-                    Success! <a href="sign-in.php">Click here to sign in.</a>
                 </div>';
             }
         ?>
