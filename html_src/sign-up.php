@@ -99,7 +99,7 @@
                         else
                         {
                              # send verification email
-                             /*mail(
+                             mail(
                                 $_POST["email"],
 
                                 'Verify Your GooseKBD Account',
@@ -112,7 +112,7 @@
                                 'From: "GooseKBD" <verify@goosekbd.com>' . "\r\n" .
                                 'X-Mailer: PHP/' . phpversion() . "\r\n" .
                                 'MIME-Version: 1.0'
-                            );*/
+                            );
                             $success = TRUE;
                         }
                     }
