@@ -59,15 +59,14 @@
                 }
                 else
                 {
+                    # check if email already exists in accounts database
+                    # (email already registered)
                     $stmt = $conn->prepare(
-                        "INSERT INTO `accounts` (email, passhash, name)
-                        VALUES (?, ?, ?)");
-                    $stmt->bind_param(
-                        "sss",
-                        $_POST["email"],
-                        password_hash($_POST["pass1"], PASSWORD_BCRYPT),
-                        $_POST["name"]);
-                    if(!$stmt->execute())
+                        "SELECT 1 FROM `accounts` where email = ?");
+                    $stmt->bind_param("s", $_POST["email"]);
+                    $stmt->execute();
+                    $stmt->store_result();
+                    if($stmt->num_rows != 0)
                     {
                         $err = 'Looks like that email has already been registered.';
                         $fill_name = $_POST["name"];
@@ -75,7 +74,47 @@
                     }
                     else
                     {
-                        $success = TRUE;
+                        # add to accounts-unverified database
+                        $verify_val = substr(md5(openssl_random_pseudo_bytes(32)), 0, 20);
+                        $expire = time()+3600; # 1 hour from now
+                        $passhash = password_hash($_POST["pass1"], PASSWORD_BCRYPT);
+                        $stmt = $conn->prepare(
+                            "INSERT INTO `accounts-unverified` (verify_val, expire, email, passhash, name)
+                            VALUES (?, ?, ?, ?, ?)");
+                        $stmt->bind_param(
+                            "sisss",
+                            $verify_val,
+                            $expire,
+                            $_POST["email"],
+                            $passhash,
+                            $_POST["name"]);
+                        if(!$stmt->execute())
+                        {
+                            # this happens when someone tries to register their email
+                            # twice without verifying it.
+                            $err = 'Looks like that email has already been registered.';
+                            $fill_name = $_POST["name"];
+                            $fill_email = $_POST["email"];
+                        }
+                        else
+                        {
+                             # send verification email
+                             mail(
+                                $_POST["email"],
+
+                                'Verify Your GooseKBD Account',
+
+                                'Click the link below to verify your account.' . "\r\n" .
+                                'If you did not request an account at goosekbd.com, ignore this email.' . "\r\n\r\n" .
+                                'https://goosekbd.com/verify.php?v=' . $verify_val . "\r\n\r\n" .
+                                'Thank you!' . "\r\n" . '  --  The GooseKBD Team',
+
+                                'From: "GooseKBD" <verify@goosekbd.com>' . "\r\n" .
+                                'X-Mailer: PHP/' . phpversion() . "\r\n" .
+                                'MIME-Version: 1.0'
+                             );
+                            $success = TRUE;
+                        }
                     }
                     $stmt->close();
                 }
