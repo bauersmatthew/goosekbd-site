@@ -59,26 +59,71 @@
                 }
                 else
                 {
+                    # check if email already exists in accounts database
+                    # (email already registered)
                     $stmt = $conn->prepare(
-                        "INSERT INTO `accounts` (email, passhash, name)
-                        VALUES (?, ?, ?)");
-                    $stmt->bind_param(
-                        "sss",
-                        $_POST["email"],
-                        password_hash($_POST["pass1"], PASSWORD_BCRYPT),
-                        $_POST["name"]);
-                    if(!$stmt->execute())
+                        "SELECT 1 FROM `accounts` where email = ?");
+                    $stmt->bind_param("s", $_POST["email"]);
+                    $stmt->execute();
+                    $stmt->store_result();
+                    if($stmt->num_rows != 0)
                     {
+                        $stmt->free_result();
+
                         $err = 'Looks like that email has already been registered.';
                         $fill_name = $_POST["name"];
                         $fill_email = $_POST["email"];
                     }
                     else
                     {
-                        $success = TRUE;
+                        $stmt->free_result();
+                        $stmt->close();
+
+                        # add to accounts-unverified database
+                        $verify_val = substr(md5(openssl_random_pseudo_bytes(32)), 0, 20);
+                        $expire = time()+3600; # 1 hour from now
+                        $passhash = password_hash($_POST["pass1"], PASSWORD_BCRYPT);
+                        $stmt = $conn->prepare(
+                            "INSERT INTO `accounts-unverified` (verify_val, expire, email, passhash, name)
+                            VALUES (?, ?, ?, ?, ?)");
+                        $stmt->bind_param(
+                            "sisss",
+                            $verify_val,
+                            $expire,
+                            $_POST["email"],
+                            $passhash,
+                            $_POST["name"]);
+                        if(!$stmt->execute())
+                        {
+                            # this happens when someone tries to register their email
+                            # twice without verifying it.
+                            $err = 'Looks like that email has already been registered.';
+                            $fill_name = $_POST["name"];
+                            $fill_email = $_POST["email"];
+                        }
+                        else
+                        {
+                             # send verification email
+                             mail(
+                                $_POST["email"],
+
+                                'Verify Your GooseKBD Account',
+
+                                'Click the link below to verify your account.' . "\r\n" .
+                                'If you did not request an account at goosekbd.com, ignore this email.' . "\r\n\r\n" .
+                                'https://goosekbd.com/verify.php?v=' . $verify_val . "\r\n\r\n" .
+                                'Thank you!' . "\r\n" . '  --  The GooseKBD Team',
+
+                                'From: "GooseKBD" <verify@goosekbd.com>' . "\r\n" .
+                                'X-Mailer: PHP/' . phpversion() . "\r\n" .
+                                'MIME-Version: 1.0'
+                            );
+                            $success = TRUE;
+                        }
                     }
                     $stmt->close();
                 }
+                $conn->close();
             }
         }
     ?>
@@ -90,7 +135,43 @@
 
 {% block title %}Sign Up{% endblock %}
 
+{% block head %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#verifyModal').modal('show');
+    });
+</script>
+{% endblock %}
+
 {% block body %}
+    <?php
+        if($success == TRUE)
+        {
+            print '
+            <div class="modal fade" id="verifyModal">
+                <div class="modal-dialogue modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Verify Your Email</h3>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Success &mdash; you\'re almost there!</h4>
+                            <p>
+                                Before you can log in, we need to verify your email. <br />
+                                We\'ve sent an email to
+                                <code>' . $_POST["email"] . '</code>;
+                                it should arrive soon**. When it does,
+                                just click the link in it to log in! <br /><br />
+                                <small>**If it doesn\'t after 30 minutes or so,
+                                contact us at <code>support@goosekbd.com</code>.</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>';
+        }
+    ?>
+
     {{ navbar("sign-up") }}
 
     <form method="post" action="#" class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 endbuf">
@@ -125,14 +206,6 @@
                 <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 alert alert-danger fade in">
                     <a href="#" class="close" data-dismiss="alert">&times;</a>
                     ' . $err . '
-                </div>';
-            }
-            elseif($success == TRUE)
-            {
-                print '
-                <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 alert alert-success fade in">
-                    <a href="#" class="close" data-dismiss="alert">&times;</a>
-                    Success! <a href="sign-in.php">Click here to sign in.</a>
                 </div>';
             }
         ?>
