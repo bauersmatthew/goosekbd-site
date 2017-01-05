@@ -68,12 +68,17 @@
                     $stmt->store_result();
                     if($stmt->num_rows != 0)
                     {
+                        $stmt->free_result();
+
                         $err = 'Looks like that email has already been registered.';
                         $fill_name = $_POST["name"];
                         $fill_email = $_POST["email"];
                     }
                     else
                     {
+                        $stmt->free_result();
+                        $stmt->close();
+
                         # add to accounts-unverified database
                         $verify_val = substr(md5(openssl_random_pseudo_bytes(32)), 0, 20);
                         $expire = time()+3600; # 1 hour from now
@@ -118,6 +123,7 @@
                     }
                     $stmt->close();
                 }
+                $conn->close();
             }
         }
     ?>
