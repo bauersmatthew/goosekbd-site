@@ -12,19 +12,23 @@
     ?>
 {% endblock %}
 
+{% block ssheets %}
+    <link rel="stylesheet" href="css/profile.css">
+{% endblock %}
+
 {% block title %}My Profile{% endblock %}
 
 {% block body %}
     {{ navbar("profile") }}
 
-    <h2 class="col-md-9 col-md-offset-3">My Orders</h2>
+    <h2 class="col-md-11 col-md-offset-1" id="orders-title">My Orders</h2>
 
     <div class="row">
-        <div class="col-sm-1 col-sm-offset-2 col-xs-2 col-xs-offset-1"></div>
-        <h4 class="col-xs-1">Order Number</h4>
-        <h4 class="col-xs-2">Product x Quantity</h4>
-        <h4 class="col-xs-2">Order Date</h4>
-        <h4 class="col-xs-2">Status</h4>
+        <div class="col-sm-2 col-sm-offset-1 col-xs-2 col-xs-offset-1"></div>
+        <p class="col-xs-2">Order Number</p>
+        <p class="col-xs-2">Product x Quantity</p>
+        <p class="col-xs-2">Order Date</p>
+        <p class="col-xs-2">Status</p>
     </div>
 
     <?php
@@ -74,10 +78,10 @@
             print '
             <div class="row">
                 <img class="col-sm-1 col-sm-offset-2 col-xs-2 col-xs-offset-1 img-responsive" src="' . $product_icon . '" alt="Product image">
-                <h4 class="col-xs-1">#' . $order_id . '</h4>
-                <h4 class="col-xs-2">' . $product_name . ' x ' . $quantity . '</h4>
-                <h4 class="col-xs-2">' . $date_ordered . '</h4>
-                <h4 class="col-xs-2">' . translate_status_code($status) . $date_statuschange . '</h4>
+                <p class="col-xs-1">#' . $order_id . '</p>
+                <p class="col-xs-2">' . $product_name . ' x ' . $quantity . '</p>
+                <p class="col-xs-2">' . $date_ordered . '</p>
+                <p class="col-xs-2">' . translate_status_code($status) . $date_statuschange . '</p>
             </div>';
         }
     ?>
