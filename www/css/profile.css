@@ -1,4 +1,8 @@
-p
+th
+{
+    font-size: 17pt;
+}
+td
 {
     font-size: 16pt;
 }
@@ -6,9 +10,10 @@ p
 {
     margin-bottom: 40px;
 }
-.bottom-border
+
+/* fixes some weird thing in firefox and opera */
+.img-responsive
 {
-    margin-bottom: 20px;
-    border-bottom-style: solid;
-    border-bottom-color: #222222;
+    width: 95%;
+    padding-right: 15%;
 }
