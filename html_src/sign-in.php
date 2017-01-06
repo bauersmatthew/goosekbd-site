@@ -72,22 +72,28 @@
 {% block body %}
     {{ navbar("sign-in") }}
 
-    <form method="post" action="#" class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 endbuf">
-        <fieldset>
-            <legend>Sign In</legend>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" class="form-control" placeholder="john.doe@example.com"
-                    value="<?php print $fill_email; ?>">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                <form method="post" action="#" class="endbuf">
+                    <fieldset>
+                        <legend>Sign In</legend>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" class="form-control" placeholder="john.doe@example.com"
+                                value="<?php print $fill_email; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-default">Sign In</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-default">Sign In</button>
-    </form>
+        </div>
+    </div>
 
-    <div class="endbuf">
+    <div class="container-fluid endbuf">
         <?php
             if($err != '')
             {
