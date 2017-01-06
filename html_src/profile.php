@@ -21,6 +21,17 @@
 {% block body %}
     {{ navbar("profile") }}
 
+    <?php
+        if(!empty($_GET["verify"]))
+        {
+            print '
+            <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 alert alert-success fade in">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                Account verified successfully! Thanks for signing up.
+            </div>';
+        }
+    ?>
+
     <h2 class="col-md-11 col-md-offset-1" id="orders-title">My Orders</h2>
 
     <div class="row">
