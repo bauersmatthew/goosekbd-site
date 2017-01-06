@@ -47,7 +47,6 @@
 
                 $conn->close();
                 $_SESSION["email"] = $email;
-                $_SESSION["name"] = $name;
                 header("Location: https://goosekbd.com/profile.php?verify=yes");
                 exit();
             }
