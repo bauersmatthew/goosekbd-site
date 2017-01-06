@@ -6,7 +6,9 @@ p
 {
     margin-bottom: 40px;
 }
-.row
+.bottom-border
 {
     margin-bottom: 20px;
+    border-bottom-style: solid;
+    border-bottom-color: #222222;
 }
