@@ -117,8 +117,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-2"></div>
-            <div class="col-xs-4">
+            <div class="col-sm-offset-2 col-sm-8 col-md-4 col-xs-offset-1 col-xs-10">
                 <form method="post" action="#email-signup">
                     <div class="form-group">
                         <label for="email" class="sr-only">Email:</label>
