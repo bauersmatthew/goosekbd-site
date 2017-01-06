@@ -141,7 +141,7 @@
                     else
                     {
                         // verify
-                        if(!preg_match("/^(?=.{3, 255}$)[a-zA-Z0-9._-]+@[a-z0-9._-]+/", $_POST["email"]))
+                        if(!preg_match("/^(?=.{3,255}$)[a-zA-Z0-9._-]+@[a-z0-9._-]+/", $_POST["email"]))
                         {
                             print '
                             <div class="col-md-4 alert alert-danger fade in">
