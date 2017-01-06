@@ -61,8 +61,6 @@
             <p>Case Finish Options (tentative):</p>
             <ul class="dashed">
                 <li>Anodized Black</li>
-                <li>Anodized Silver</li>
-                <li>Powder-coated Black</li>
                 <li>Powder-coated White</li>
             </ul>
         </div>
