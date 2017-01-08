@@ -1,3 +1,4 @@
 www/*.html
+!google*.html
 www.zip
 www/*.php
