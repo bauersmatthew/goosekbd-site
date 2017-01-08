@@ -36,7 +36,7 @@
                 <p class="textwall" id="details">
                     Characteristic of Korean customs, brass plates offer boards a unique
                     sound, weight, and feel.
-                    However, despite significant growth in the custom toplate market
+                    However, despite significant growth in the custom plate market
                     brass plates still remain as quite an elusive option for
                     even the more serious builders.
                     <br /><br />
