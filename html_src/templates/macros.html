@@ -37,6 +37,37 @@
                     <a href="about-us.php">ABOUT US</a>
                 </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <?php
+                    session_start();
+                    $b1text = '';
+                    $b1href = '';
+                    $b2text = '';
+                    $b2href = '';
+                    if(empty($_SESSION["email"]))
+                    {
+                        $b1text = 'Sign In';
+                        $b1href = 'sign-in.php';
+                        $b2text = 'Sign Up';
+                        $b2href = 'sign-up.php';
+                    }
+                    else
+                    {
+                        $b1text = 'My Orders';
+                        $b1href = 'profile.php';
+                        $b2text = 'Sign Out';
+                        $b2href = 'sign-out.php';
+                    }
+                    print '
+                        <li class="{% if active=="sign-in" or active=="profile" %}active{% endif %}">
+                            <a href="' . $b1href . '">' . $b1text . '</a>
+                        </li>';
+                    print '
+                        <li class="{% if active=="sign-up" or active=="sign-out" %}active{% endif %}">
+                            <a href="' . $b2href . '">' . $b2text . '</a>
+                        </li>';
+                ?>
+            </ul>
         </div>
     </nav>
 {% endmacro %}
